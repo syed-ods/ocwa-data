@@ -86,13 +86,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background: white;
 }
 
 a {
@@ -104,4 +99,23 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/* Custom Styles */
+
+table th {
+  padding: 0.25rem 1rem;
+  margin: none;
+  border: solid 1px black;
+  background-color: cyan;
+}
+
+table td {
+  padding: 0.25rem 1rem;
+  border: solid 1px black;
+  background-color: #f8f8f8;
+}
+
+.tables-list li {
+  padding: 0.5rem;
 }
