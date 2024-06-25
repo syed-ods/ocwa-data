@@ -1,13 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useState, useEffect } from "react";
+import { useRouter, useParams } from "next/navigation";
+import Form from "@/app/components/Form";
+
+let watersamples;
 
 export default function AddPage() {
   const router = useRouter();
   const { table } = useParams();
   const [newRowData, setNewRowData] = useState({});
   const [columns, setColumns] = useState([]);
+
+  watersamples = table == "watersamples" ? true : false;
 
   useEffect(() => {
     const fetchColumns = async () => {
@@ -16,7 +21,7 @@ export default function AddPage() {
         const result = await response.json();
         setColumns(result.columns);
       } catch (error) {
-        console.error('Error fetching columns:', error);
+        console.error("Error fetching columns:", error);
       }
     };
 
@@ -25,18 +30,25 @@ export default function AddPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewRowData(prevNewRowData => ({
+    setNewRowData((prevNewRowData) => ({
       ...prevNewRowData,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleAdd = async () => {
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    const form = e.target.closest("form");
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     try {
       const response = await fetch(`/api/tables/${table}/add`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(newRowData),
       });
@@ -44,28 +56,43 @@ export default function AddPage() {
       if (result.success) {
         router.push(`/tables/${table}`);
       } else {
-        console.error('Error adding record:', result.error);
+        console.error("Error adding record:", result.error);
       }
     } catch (error) {
-      console.error('Error adding record:', error);
+      console.error("Error adding record:", error);
     }
   };
 
-  return (
-    <div>
-      <h2>Add New Record</h2>
-      {columns.map((col) => (
-        <div key={col}>
-          <label>{col}:</label>
-          <input
-            name={col}
-            value={newRowData[col] || ''}
-            onChange={handleChange}
-          />
-        </div>
-      ))}
-      <button onClick={() => router.push(`/tables/${table}`)}>Cancel</button>
-      <button onClick={handleAdd}>Save</button>
-    </div>
-  );
+  if (watersamples) {
+    return (
+      <Form
+        handleSubmit={handleAdd}
+        handleChange={handleChange}
+        handleCancel={() => router.push(`/tables/${table}`)}
+        formData={newRowData}
+      />
+    );
+  } else {
+    return (
+      <div>
+        <h2>Add New Record</h2>
+        <form onSubmit={handleAdd}>
+          {columns.map((col) => (
+            <div key={col}>
+              <label>{col}:</label>
+              <input
+                name={col}
+                value={newRowData[col] || ""}
+                onChange={handleChange}
+              />
+            </div>
+          ))}
+          <button type="button" onClick={() => router.push(`/tables/${table}`)}>
+            Cancel
+          </button>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    );
+  }
 }
