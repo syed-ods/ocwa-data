@@ -1,44 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+
+import DataCard from "@/app/components/DataCard";
+// import { OntarioButton } from "@ongov/ontario-design-system-component-library-react";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      {/* <OntarioButton type="primary">Ontario Primary</OntarioButton> */}
+      <div className={`${styles.center} ${styles.description}`}>
+        <p>Your web app powered by Next.js & SQL</p>
       </div>
-
       <div className={styles.center}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
+          src="/OCWA.svg"
           alt="Next.js Logo"
-          width={180}
-          height={37}
+          width={360}
+          height={74}
           priority
         />
       </div>
-
+      <DataCard />
+      <br />
+      <h2>Next.js Resources</h2>
       <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

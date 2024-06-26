@@ -65,7 +65,11 @@ export default function Form({
         <label htmlFor="trimetoprim">Trimetoprim:</label>
         <input
           onChange={handleChange}
-          value={formData.trimetoprim === null || formData.trimetoprim === undefined ? "" : formData.trimetoprim}
+          value={
+            formData.trimetoprim === null || formData.trimetoprim === undefined
+              ? ""
+              : formData.trimetoprim
+          }
           type="number"
           id="trimetoprim"
           name="trimetoprim"
@@ -76,7 +80,12 @@ export default function Form({
         <label htmlFor="oxytetracyclin">Oxytetracyclin:</label>
         <input
           onChange={handleChange}
-          value={formData.oxytetracyclin === null || formData.oxytetracyclin === undefined ? "" : formData.oxytetracyclin}
+          value={
+            formData.oxytetracyclin === null ||
+            formData.oxytetracyclin === undefined
+              ? ""
+              : formData.oxytetracyclin
+          }
           type="number"
           id="oxytetracyclin"
           name="oxytetracyclin"
@@ -87,7 +96,11 @@ export default function Form({
         <label htmlFor="ofloxacin">Ofloxacin:</label>
         <input
           onChange={handleChange}
-          value={formData.ofloxacin === null || formData.ofloxacin === undefined ? "" : formData.ofloxacin}
+          value={
+            formData.ofloxacin === null || formData.ofloxacin === undefined
+              ? ""
+              : formData.ofloxacin
+          }
           type="number"
           id="ofloxacin"
           name="ofloxacin"
@@ -98,7 +111,11 @@ export default function Form({
         <label htmlFor="norfloxacin">Norfloxacin:</label>
         <input
           onChange={handleChange}
-          value={formData.norfloxacin === null || formData.norfloxacin === undefined ? "" : formData.norfloxacin}
+          value={
+            formData.norfloxacin === null || formData.norfloxacin === undefined
+              ? ""
+              : formData.norfloxacin
+          }
           type="number"
           id="norfloxacin"
           name="norfloxacin"
@@ -109,7 +126,11 @@ export default function Form({
         <label htmlFor="oseltamivir">Oseltamivir:</label>
         <input
           onChange={handleChange}
-          value={formData.oseltamivir === null || formData.oseltamivir === undefined ? "" : formData.oseltamivir}
+          value={
+            formData.oseltamivir === null || formData.oseltamivir === undefined
+              ? ""
+              : formData.oseltamivir
+          }
           type="number"
           id="oseltamivir"
           name="oseltamivir"
@@ -120,7 +141,12 @@ export default function Form({
         <label htmlFor="ciprofloxacin">Ciprofloxacin:</label>
         <input
           onChange={handleChange}
-          value={formData.ciprofloxacin === null || formData.ciprofloxacin === undefined ? "" : formData.ciprofloxacin}
+          value={
+            formData.ciprofloxacin === null ||
+            formData.ciprofloxacin === undefined
+              ? ""
+              : formData.ciprofloxacin
+          }
           type="number"
           id="ciprofloxacin"
           name="ciprofloxacin"
@@ -131,7 +157,11 @@ export default function Form({
         <label htmlFor="naphazoline">Naphazoline:</label>
         <input
           onChange={handleChange}
-          value={formData.naphazoline === null || formData.naphazoline === undefined ? "" : formData.naphazoline}
+          value={
+            formData.naphazoline === null || formData.naphazoline === undefined
+              ? ""
+              : formData.naphazoline
+          }
           type="number"
           id="naphazoline"
           name="naphazoline"
@@ -142,7 +172,12 @@ export default function Form({
         <label htmlFor="azithromycin">Azithromycin:</label>
         <input
           onChange={handleChange}
-          value={formData.azithromycin === null || formData.azithromycin === undefined ? "" : formData.azithromycin}
+          value={
+            formData.azithromycin === null ||
+            formData.azithromycin === undefined
+              ? ""
+              : formData.azithromycin
+          }
           type="number"
           id="azithromycin"
           name="azithromycin"
@@ -153,7 +188,11 @@ export default function Form({
         <label htmlFor="cefotaxime">Cefotaxime:</label>
         <input
           onChange={handleChange}
-          value={formData.cefotaxime === null || formData.cefotaxime === undefined ? "" : formData.cefotaxime}
+          value={
+            formData.cefotaxime === null || formData.cefotaxime === undefined
+              ? ""
+              : formData.cefotaxime
+          }
           type="number"
           id="cefotaxime"
           name="cefotaxime"
@@ -164,7 +203,11 @@ export default function Form({
         <label htmlFor="doxycyclin">Doxycyclin:</label>
         <input
           onChange={handleChange}
-          value={formData.doxycyclin === null || formData.doxycyclin === undefined ? "" : formData.doxycyclin}
+          value={
+            formData.doxycyclin === null || formData.doxycyclin === undefined
+              ? ""
+              : formData.doxycyclin
+          }
           type="number"
           id="doxycyclin"
           name="doxycyclin"
@@ -175,7 +218,12 @@ export default function Form({
         <label htmlFor="sulfamethoxazole">Sulfamethoxazole:</label>
         <input
           onChange={handleChange}
-          value={formData.sulfamethoxazole === null || formData.sulfamethoxazole === undefined ? "" : formData.sulfamethoxazole}
+          value={
+            formData.sulfamethoxazole === null ||
+            formData.sulfamethoxazole === undefined
+              ? ""
+              : formData.sulfamethoxazole
+          }
           type="number"
           id="sulfamethoxazole"
           name="sulfamethoxazole"
@@ -186,7 +234,12 @@ export default function Form({
         <label htmlFor="oxymetazoline">Oxymetazoline:</label>
         <input
           onChange={handleChange}
-          value={formData.oxymetazoline === null || formData.oxymetazoline === undefined ? "" : formData.oxymetazoline}
+          value={
+            formData.oxymetazoline === null ||
+            formData.oxymetazoline === undefined
+              ? ""
+              : formData.oxymetazoline
+          }
           type="number"
           id="oxymetazoline"
           name="oxymetazoline"
@@ -197,7 +250,12 @@ export default function Form({
         <label htmlFor="erythromycin">Erythromycin:</label>
         <input
           onChange={handleChange}
-          value={formData.erythromycin === null || formData.erythromycin === undefined ? "" : formData.erythromycin}
+          value={
+            formData.erythromycin === null ||
+            formData.erythromycin === undefined
+              ? ""
+              : formData.erythromycin
+          }
           type="number"
           id="erythromycin"
           name="erythromycin"
@@ -208,7 +266,12 @@ export default function Form({
         <label htmlFor="xylometazoline">Xylometazoline:</label>
         <input
           onChange={handleChange}
-          value={formData.xylometazoline === null || formData.xylometazoline === undefined ? "" : formData.xylometazoline}
+          value={
+            formData.xylometazoline === null ||
+            formData.xylometazoline === undefined
+              ? ""
+              : formData.xylometazoline
+          }
           type="number"
           id="xylometazoline"
           name="xylometazoline"
@@ -219,16 +282,25 @@ export default function Form({
         <label htmlFor="clarithromycin">Clarithromycin:</label>
         <input
           onChange={handleChange}
-          value={formData.clarithromycin === null || formData.clarithromycin === undefined ? "" : formData.clarithromycin}
+          value={
+            formData.clarithromycin === null ||
+            formData.clarithromycin === undefined
+              ? ""
+              : formData.clarithromycin
+          }
           type="number"
           id="clarithromycin"
           name="clarithromycin"
           step="0.01"
         />
       </div>
-      <button onClick={handleCancel}>Cancel</button>
-      <button onClick={handleDelete}>Delete</button>
-      <button type="submit" onClick={handleSubmit}>Save</button>
+      <div className="crud-buttons">
+        <button onClick={handleCancel}>Cancel</button>
+        <button onClick={handleDelete}>Delete</button>
+        <button type="submit" onClick={handleSubmit}>
+          Save
+        </button>
+      </div>
     </form>
   );
 }

@@ -87,10 +87,15 @@ export default function AddPage() {
               />
             </div>
           ))}
-          <button type="button" onClick={() => router.push(`/tables/${table}`)}>
-            Cancel
-          </button>
-          <button type="submit">Save</button>
+          <div className="crud-buttons">
+            <button
+              type="button"
+              onClick={() => router.push(`/tables/${table}`)}
+            >
+              Cancel
+            </button>
+            <button type="submit">Save</button>
+          </div>
         </form>
       </div>
     );

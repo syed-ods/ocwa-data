@@ -38,6 +38,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --ontario-blue: rgb(0, 102, 204);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,8 +88,8 @@ body {
 }
 
 body {
-  color: black;
-  background: white;
+  color: inherit;
+  background: inherit;
 }
 
 a {
@@ -102,20 +104,104 @@ a {
 }
 
 /* Custom Styles */
+h1, h2 {
+  padding: 1rem 0.5rem;
+}
+
+button {
+  background-color: var(--ontario-blue);
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+
+form div{
+  padding: 0.5rem 0;
+}
+
+form div label{
+  padding: 0 0.5rem;
+}
+
+.crud-buttons {
+  padding: 0.5rem;
+}
+
+.crud-buttons button {
+  margin: 0 0.25rem;
+}
+
+/* Dashboard */
+.dashboard-card .ontario-card__container {
+  max-width: 72rem !important;
+  width: 100% !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
+}
+.dashboard-card .ontario-card__container .ontario-card-li {
+  background-color: var(--ontario-blue);
+  box-shadow: 0 0.1875rem 0.5rem 0.0625rem rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  margin: 0 2rem 2rem 0;
+  padding: 1rem;
+  list-style-type: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+/* end */
+
+.table-container {
+  padding: 1rem 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+}
 
 table th {
   padding: 0.25rem 1rem;
   margin: none;
-  border: solid 1px black;
-  background-color: cyan;
+  border: solid 1px white;
+  background-color: darkblue;
 }
 
 table td {
   padding: 0.25rem 1rem;
-  border: solid 1px black;
-  background-color: #f8f8f8;
+  border: solid 1px white;
+  margin: none;
+}
+table th {
+  margin: none;
+}
+
+.tables-list {
+  list-style-type: square;
+  margin: 0 1rem;
+  padding: 1rem;
 }
 
 .tables-list li {
+  font-size: large;
   padding: 0.5rem;
+  color: cyan;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.back-link {
+  margin-left: 1rem;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0070f3;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-arrow {
+  margin: 0 0.2rem;
 }

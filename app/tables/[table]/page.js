@@ -1,7 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+
+import Link from "next/link";
+import { BsArrowLeftShort } from "react-icons/bs";
 
 export default function TablePage() {
   const { table } = useParams();
@@ -19,7 +22,7 @@ export default function TablePage() {
         setData(result.rows || []);
         setColumns(result.columns || []);
       } catch (error) {
-        console.error('Error fetching table data:', error);
+        console.error("Error fetching table data:", error);
       }
     };
 
@@ -36,13 +39,22 @@ export default function TablePage() {
 
   return (
     <div>
-      <h1>{table.charAt(0).toUpperCase() + table.slice(1)}</h1>
-      <div style={{ overflow: 'auto', height: '400px', width: '100%' }}>
+      <h1>{table.charAt(0).toUpperCase() + table.slice(1)} Data</h1>
+      <Link className="back-link" href="/tables">
+      <BsArrowLeftShort className="back-arrow" />
+        Back to tables
+      </Link>
+      <div
+        className="table-container"
+        style={{ overflow: "auto", width: "100%" }}
+      >
         <table>
           <thead>
             <tr>
               {columns.map((col, index) => (
-                <th key={index}>{col.charAt(0).toUpperCase() + col.slice(1)}</th>
+                <th key={index}>
+                  {col.charAt(0).toUpperCase() + col.slice(1)}
+                </th>
               ))}
               <th>Action</th>
             </tr>
@@ -60,8 +72,8 @@ export default function TablePage() {
             ))}
           </tbody>
         </table>
-        <button onClick={handleAdd}>Add Record</button>
       </div>
+      <button onClick={handleAdd}>Add Data</button>
       <style jsx>{`
         .edit-dialog,
         .add-dialog {

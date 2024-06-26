@@ -19,6 +19,7 @@
     "pg": "^8.12.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "vercel": "^34.2.7"
   },
   "devDependencies": {

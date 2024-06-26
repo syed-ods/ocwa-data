@@ -22,7 +22,10 @@ export default function Tables() {
 
   return (
     <div>
-      <h1>Tables</h1>
+      <h1>Your Data Tables</h1>
+      <Link className="back-link" href="/">
+        Back to Home
+      </Link>
       <ul className="tables-list">
         {tables.map((table) => (
           <li key={table}>

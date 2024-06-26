@@ -48,9 +48,9 @@ export default function UpdatePage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditRowData((prevData) => ({ 
-      ...prevData, 
-      [name]: value === "" ? null : value 
+    setEditRowData((prevData) => ({
+      ...prevData,
+      [name]: value === "" ? null : value,
     }));
   };
 
@@ -128,13 +128,15 @@ export default function UpdatePage() {
           ) : (
             <p>No columns available</p>
           )}
-          <button onClick={() => router.push(`/tables/${table}`)}>
-            Cancel
-          </button>
-          <button onClick={handleDelete}>Delete</button>
-          <button type="submit" onClick={handleSave}>
-            Save
-          </button>
+          <div className="crud-buttons">
+            <button onClick={() => router.push(`/tables/${table}`)}>
+              Cancel
+            </button>
+            <button onClick={handleDelete}>Delete</button>
+            <button type="submit" onClick={handleSave}>
+              Save
+            </button>
+          </div>
         </form>
       </div>
     );
