@@ -92,6 +92,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ### Up Next
 The application despite its smooth core functionality requires more features and checks. Here are some projected updates:
 - Incorporate user authenticaiton (using Express.js or any other framework).
+- Support CSV files: upload/read and processing.
 - Testing: unit, integraion, and end to end tests.
 - Security: more input checks to avoid SQL injections and prevent other attacks.
 - Dynamic table creation and validation. Currently, these two features are limited to specific requests and created for the data of interest only.
