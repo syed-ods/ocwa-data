@@ -2,7 +2,7 @@ import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
  
 export async function GET(request) {
-  const tableName = "pets";
+  const tableName = "names";
   try {
     const result =
       await sql`CREATE TABLE IF NOT EXISTS ${tableName} ( Name varchar(255), Owner varchar(255) );`;
