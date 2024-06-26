@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ongov/ontario-design-system-component-library-react": "^4.2.0",
     "@vercel/postgres": "^0.8.0",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.4.5",
