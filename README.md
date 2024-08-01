@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Clone the application from [GitHub](https://github.com/syed-ods/ocwa-data.git):
 ```bash
-git clone https://github.com/syed-ods/next-crud-app.git
+git clone https://github.com/syed-ods/ocwa-data.git
 ```
 
 Request access:
