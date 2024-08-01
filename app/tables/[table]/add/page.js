@@ -54,6 +54,17 @@ export default function AddPage() {
       });
       const result = await response.json();
       if (result.success) {
+        if (table === 'products') {
+          const { title, product_id } = result.data;
+          const notificationMessage = `${title} with id ${product_id} added to the product list`;
+          await fetch(`/api/notifications`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message: notificationMessage }),
+          });
+        }
         router.push(`/tables/${table}`);
       } else {
         console.error("Error adding record:", result.error);

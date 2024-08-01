@@ -1,19 +1,23 @@
 
-The Next-CRUD application was created as an inteview assessment assignment for Ontario Clean Water Agency.
+The Next-CRUD application was created for interview assessments. 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Getting started
 
 Clone the application from [GitHub](https://github.com/syed-ods/ocwa-data.git):
 ```bash
-git clone https://github.com/syed-ods/ocwa-data.git
+git clone https://github.com/syed-ods/next-crud-app.git
 ```
+
 Request access:
 If you cannot access the application, please request access from: [syed.hassan@ontario.ca](mailto:syed.hassan@ontario.ca)
 
+### Setting up the environment variables
+Make sure to request access to the secure environment variables. If you already have the variables, make sure to save them in a local `.env.development.local` file within the root directory of the project.
 
-Run the application locally:
+
+#### Run the application locally:
 ```bash
 npm run dev
 # or
@@ -26,21 +30,25 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Application Structure
-The OCWA-data application is a full-stack application powered by Next.js with both static and server-side functionality. The application database is powered by SQL, a PostgreSQL database. Both the application and the database are hosted at [Vercel](https://ocwa-data.vercel.app).
+### Application structure
+The NEXT-CRUD application is a full-stack application powered by Next.js with both static and server-side functionality. The application database is powered by SQL, a PostgreSQL database. Both the application and the database are hosted at [Vercel](https://ocwa-data.vercel.app).
 
 The application includes back-end logic: data fetching from the database using `route.js` files, and the front-end logic to render the application pages using `page.js` files.
 
 **Back-end logic**: `/app/api` within all the `route.js` files.
 **Front-end logic**: `/app` within all the `page.js` files.
 
-#### Folder Structure
+#### Folder structure
 - 📂 app
     - 📂 api
-        - 📂 create-sql-table
+        -   📂 auth
+            - 📂 login
                 - *route.js*
+            - 📂 register
+                - *route.js*
+            - authController.js
         - 📂 tables
-                - *route.js*
+            - *route.js*
             - 📂 [table] (dynamic table template)
                 - *route.js*
                 - 📂 [id] (dynamic table routes with unique identifiers for edit and delete functionality)
@@ -52,6 +60,16 @@ The application includes back-end logic: data fetching from the database using `
                 - 📂 add (Add records)
                     - *route.js*
     - 📂 components
+        - DataCard.js
+        - Form.js
+    - 📂 login
+        - *page.js* (login page template)
+    - 📂 register
+        - *page.js* (register page template)
+    - 📂 middleware
+        - *authMiddleware.js*
+    - 📂 models
+        - *users.js*
     - 📂 tables (A page that lists all the tables in the database)
         - *page.js* 
         - 📂 [table] (For dynamic table pages that include each record)
@@ -66,36 +84,31 @@ The application includes back-end logic: data fetching from the database using `
 The application is developed creating scale in mind – the same logic can be used to enchance the size of this application and its features.
 The code is reproducible and can be tested. You might require access variables to fetch data from the database. Please contact [Syed Hassan](mailto:syed.hassan@ontario.ca) to acquire the passwords and environment variables.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Application features
 
-## Application Features
-### Requested Features
-1. Submit some new data and generate a record of submittal into a SQL database. ✅
-2. Validate new data submittal against historically observed range with error handling for invalid data. Provide visual cues to guide user to validity issues. ✅
-3. Allow user to make edits on the submittal components, e.g. where flagged by validation, and update database & any front-end visualization accordingly. ✅
-4. Writing to a SQL database with data edited using the front-end. ✅
-
-### Current Features (MVP+)
+### Current features (MVP+)
+- Basic login and register,
 - Browse/read data,
 - Create/add data,
 - Update/edit data,
 - Delete data,
-- Create Tables using GET requests,
 - Route to nested pages and directories,
 - Dynamic Routing and site navigation,
-- Form validation (HTML),
-- Error handling,
+- Form validation (server side),
+- Error handling (within each file),
 - Server-side rendering,
 - Secure database and access variables,
 - [Ontario Design System](https://designsystem.ontario.ca) integraion.
+- Notification data table,
+- Filter data from last 30 days,
+- View count by product category.
 
-### Up Next
+### Up next
 The application despite its smooth core functionality requires more features and checks. Here are some projected updates:
-- Incorporate user authenticaiton (using Express.js or any other framework).
-- Support CSV files: upload/read and processing.
+- Working notification system.
 - Testing: unit, integraion, and end to end tests.
 - Security: more input checks to avoid SQL injections and prevent other attacks.
-- Dynamic table creation and validation. Currently, these two features are limited to specific requests and created for the data of interest only.
+- Dynamic table creation and Form validation. .
 
 
 ##### End of documentation

@@ -35,6 +35,17 @@ export async function POST(request, { params }) {
     const query = `INSERT INTO "${table}" (${columnsStr}) VALUES (${placeholders}) RETURNING *`;
     await sql.query(query, values);
 
+    const insertedRecord = result.rows[0];
+
+    if (table === 'products') {
+      const { title, product_id } = insertedRecord;
+      const notificationMessage = `${title} with id ${product_id} added to the product list`;
+      await sql.query(
+        `INSERT INTO "notifications" (message) VALUES ($1)`,
+        [notificationMessage]
+      );
+    }
+
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

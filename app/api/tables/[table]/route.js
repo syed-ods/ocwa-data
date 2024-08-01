@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
   const count = url.searchParams.get('count');
 
   // Validate the table name to prevent SQL injection
-  const validTables = ['names', 'watersamples', 'products']; 
+  const validTables = ['names', 'watersamples', 'products', 'notifications']; 
   if (!validTables.includes(table)) {
     return new Response(JSON.stringify({ error: 'Invalid table name' }), {
       status: 400,
