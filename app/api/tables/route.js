@@ -1,5 +1,6 @@
 import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
+import { authenticateToken } from '../../middleware/authMiddleware';
 
 /**
  * This GET function fetches the names of all tables in the 'public' schema of our PostgreSQL database hosted on Vercel.
@@ -17,12 +18,16 @@ import { NextResponse } from 'next/server';
  * * { error: "Error fetching tables" }, { status: 500 }
  */
 
-export async function GET() {
+export async function GET(req) {
+  const authResult = authenticateToken(req);
+  if (authResult.status) return authResult;
+
   try {
     const result = await sql`
       SELECT table_name
       FROM information_schema.tables
-      WHERE table_schema='public';
+      WHERE table_schema='public'
+      AND table_name NOT IN ('users', 'watersamples');
     `;
 
     const tables = result.rows.map(row => row.table_name);

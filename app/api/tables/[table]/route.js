@@ -2,9 +2,12 @@ import { sql } from '@vercel/postgres';
 
 export async function GET(req, { params }) {
   const { table } = params;
+  const url = new URL(req.url);
+  const filter = url.searchParams.get('filter');
+  const count = url.searchParams.get('count');
 
   // Validate the table name to prevent SQL injection
-  const validTables = ['names', 'watersamples']; 
+  const validTables = ['names', 'watersamples', 'products']; 
   if (!validTables.includes(table)) {
     return new Response(JSON.stringify({ error: 'Invalid table name' }), {
       status: 400,
@@ -15,9 +18,20 @@ export async function GET(req, { params }) {
   }
 
   try {
-    // Construct the query dynamically
-    const query = `SELECT * FROM ${table}`;
-    const result = await sql.query(query);
+    let query = `SELECT * FROM ${table}`;
+    const queryParams = [];
+
+    if (table === 'products' && filter === 'past30days') {
+      query = `SELECT * FROM ${table} WHERE date_created >= NOW() - INTERVAL '30 days'`;
+    } else if (table === 'products' && count === 'true') {
+      query = `SELECT category, COUNT(*) as count FROM ${table} GROUP BY category`;
+    } else {
+      query += ` ORDER BY id`; 
+    }
+
+    console.log('Executing query:', query); 
+
+    const result = await sql.query(query, queryParams);
 
     console.log('Fetched table data successfully');
     return new Response(JSON.stringify({

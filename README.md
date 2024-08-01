@@ -1,5 +1,5 @@
 
-The OCWA-Data application was created as an inteview assessment assignment for Ontario Clean Water Agency.
+The Next-CRUD application was created as an inteview assessment assignment for Ontario Clean Water Agency.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
