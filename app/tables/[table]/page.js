@@ -12,20 +12,25 @@ export default function TablePage() {
   const [data, setData] = useState([]);
   const [columns, setColumns] = useState([]);
 
+  const fetchData = async (filter = false, count = false) => {
+    try {
+      let url = `/api/tables/${table}`;
+      if (filter) {
+        url += '?filter=past30days';
+      } else if (count) {
+        url += '?count=true';
+      }
+      const response = await fetch(url);
+      const result = await response.json();
+      setData(result.rows || []);
+      setColumns(result.columns || []);
+    } catch (error) {
+      console.error("Error fetching table data:", error);
+    }
+  };
+
   useEffect(() => {
     if (!table) return;
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/tables/${table}`);
-        const result = await response.json();
-        setData(result.rows || []);
-        setColumns(result.columns || []);
-      } catch (error) {
-        console.error("Error fetching table data:", error);
-      }
-    };
-
     fetchData();
   }, [table]);
 
@@ -37,17 +42,31 @@ export default function TablePage() {
     router.push(`/tables/${table}/add`);
   };
 
+  const handleFilter = () => {
+    fetchData(true);
+  };
+
+  const handleCount = () => {
+    fetchData(false, true);
+  };
+
   return (
     <div>
       <h1>{table.charAt(0).toUpperCase() + table.slice(1)} Data</h1>
       <Link className="back-link" href="/tables">
-      <BsArrowLeftShort className="back-arrow" />
+        <BsArrowLeftShort className="back-arrow" />
         Back to tables
       </Link>
       <div
         className="table-container"
-        style={{ overflow: "auto", width: "100%" }}
+        style={{ overflow: 'auto', width: '100%' }}
       >
+        {table === 'products' && (
+          <>
+            <button onClick={handleFilter}>Filter last month</button>
+            <button onClick={handleCount}>Count per category</button>
+          </>
+        )}
         <table>
           <thead>
             <tr>

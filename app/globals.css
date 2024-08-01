@@ -90,6 +90,7 @@ body {
 body {
   color: inherit;
   background: inherit;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -97,9 +98,22 @@ a {
   text-decoration: none;
 }
 
+section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
+  }
+  .home-main {
+    color-scheme: unset;
+    background-color: black;
+    color: white;
   }
 }
 
@@ -109,10 +123,12 @@ h1, h2 {
 }
 
 button {
+  color: #fff;
   background-color: var(--ontario-blue);
   border: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 1rem;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 form div{
@@ -159,18 +175,20 @@ form div label{
 
 table {
   border-collapse: collapse;
+  margin: 1rem;
 }
 
 table th {
   padding: 0.25rem 1rem;
   margin: none;
-  border: solid 1px white;
-  background-color: darkblue;
+  border: solid 1px gray;
+  color: white;
+  background-color: var(--ontario-blue);
 }
 
 table td {
   padding: 0.25rem 1rem;
-  border: solid 1px white;
+  border: solid 1px gray;
   margin: none;
 }
 table th {
@@ -186,7 +204,7 @@ table th {
 .tables-list li {
   font-size: large;
   padding: 0.5rem;
-  color: cyan;
+  color: var(--ontario-blue);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -196,7 +214,7 @@ table th {
   display: inline-block;
   padding: 10px 20px;
   color: #fff;
-  background-color: #0070f3;
+  background-color: var(--ontario-blue);
   border-radius: 5px;
   text-decoration: none;
   font-size: 16px;
